@@ -1,5 +1,8 @@
 <?php
     require_once __DIR__ . '/autoload.php';
 
-    $Db = new \App\Db();
+    $db = new \App\Db();
+    $data = $db->query('SELECT * FROM foo');
+    var_dump($data);
+
 ?>
