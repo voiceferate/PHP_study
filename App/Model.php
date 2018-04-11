@@ -21,4 +21,19 @@ class Model
             static::CLASS
         );
     }
+
+    public static function findById($id)
+    {
+        $db = new \App\Db();
+        $res = $db->query(
+            'SELECT * FROM ' . static::TABLE . ' WHERE id = :id',
+            static::CLASS,
+            [':id' => $id]
+        );
+        if (empty($res)) {
+            return false;
+        } else {
+            return $res;
+        }
+    }
 }
